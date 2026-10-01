@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f1f3ed;
+  --surface: #fffefa;
+  --foreground: #202a27;
+  --muted: #68736d;
+  --accent: #28634f;
+  --accent-dark: #194737;
+  --highlight: #c65c3d;
+  --border: #d9dfd8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-mono: monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgb(38 71 56 / 3%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(38 71 56 / 3%) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--foreground);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 22px;
+  width: min(92%, 1320px);
+  margin: 0 auto;
+  padding: 52px 0 64px;
+}
+
+h1 {
+  grid-column: 1 / -1;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+h1::before {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--highlight);
+  content: "CATALOG / CONTROL";
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+main > button {
+  position: absolute;
+  top: 76px;
+  right: 0;
+  margin: 0;
+}
+
+form {
+  min-width: 0;
+  margin: 0;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 3px;
+  box-shadow: 0 8px 24px rgb(31 55 42 / 5%);
+}
+
+form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  color: #36463f;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+form input,
+form select {
+  width: 100%;
+  max-width: none;
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid #cbd4cd;
+  border-radius: 3px;
+  background: #fff;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(40 99 79 / 13%);
+}
+
+form span {
+  display: block;
+  min-height: 16px;
+  margin-top: 3px;
+  color: #a43d2c;
+  font-size: 13px;
+}
+
+button {
+  min-height: 42px;
+  margin-top: 14px;
+  margin-right: 8px;
+  padding: 9px 16px;
+  border: 1px solid #cbd4cd;
+  border-radius: 3px;
+  background: #fffefa;
+  color: #34463c;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+button:hover {
+  border-color: #8da397;
+  background: #eff3ee;
+  transform: translateY(-1px);
+}
+
+form button[type="submit"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 10px rgb(40 99 79 / 15%);
+}
+
+form button[type="submit"]:hover {
+  border-color: var(--accent-dark);
+  background: var(--accent-dark);
+}
+
+td button:nth-of-type(2) {
+  border-color: #e6c9bf;
+  color: #a43d2c;
+}
+
+td button:nth-of-type(2):hover {
+  border-color: #a43d2c;
+  background: #fff3ef;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+table {
+  width: 100%;
+  min-width: 720px;
+  margin-top: 8px;
+  border-collapse: collapse;
+  background: var(--surface);
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #e6eae4;
+  text-align: left;
+}
+
+th {
+  background: #e8eee8;
+  color: #33473d;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+td {
+  color: #3d4943;
+}
+
+tbody tr:nth-child(even) {
+  background: #f8f9f5;
+}
+
+tbody tr:hover {
+  background: #edf4ef;
+}
+
+td img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border: 1px solid #e6eae4;
+  border-radius: 3px;
+  background: white;
+}
+
+section {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin-top: 4px;
+  padding-top: 22px;
+  border-top: 1px solid #cbd4cd;
+}
+
+p {
+  margin: 12px 0;
+  color: var(--muted);
+}
+
+section[aria-live] > p {
+  padding: 16px 18px;
+  border-left: 3px solid var(--highlight);
+  background: var(--surface);
+}
+
+@media (max-width: 760px) {
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    width: min(100% - 32px, 560px);
+    padding: 30px 0 40px;
+  }
+
+  h1 {
+    padding-right: 0;
+    font-size: 32px;
+  }
+
+  main > button {
+    position: static;
+    justify-self: start;
+    margin-top: -2px;
+  }
+
+  form {
+    padding: 18px;
+  }
+
+  section[aria-live] {
+    overflow-x: auto;
+    padding-top: 16px;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+  }
+
+  td img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
